@@ -1,12 +1,9 @@
 # ShopBridge
 
-1. Documentation via Swagger
-	- /swagger/index.html
-
-2. Authentication via claims and JWT
+1. Authentication via claims and JWT
 	- /api/Authentication/token
 	
-3. RESTful URLs and actions
+2. RESTful URLs and actions
 		
 		GET /product
 		GET /product/{id}
@@ -18,13 +15,13 @@
 
 		DELETE /product/{id} 
 
-4. Query parameters for advanced filtering, sorting and searching.
+3. Query parameters for advanced filtering, sorting and searching.
 
-5. Versioning via URL.
+4. Versioning via URL.
 
-6. Returning errors with HTTP Codes.
+5. Returning errors with HTTP Codes.
 
-8. Data integration with EF Core.
+6. Data integration with EF Core.
 
 7. Healthchecks.
 
@@ -33,6 +30,6 @@
 
 		/health
 
-9. Logging.
+8. Logging.
 
-10. Unit testing with NUnit.
+9. Unit testing with NUnit.
