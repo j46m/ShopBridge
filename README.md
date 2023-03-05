@@ -30,11 +30,11 @@
 
 7. Health checks.
 
-		Checks availability of SQL Server connection with a string connection, 
-		other parameters can be passed to constructor.
+		Checks availability of SQL Server connection with a connection connection, 
+		other parameters can be passed to the constructor.
 
 		/health
 
-8. Logging.
+8. (TODO) Logging.
 
 9. Unit testing with NUnit.

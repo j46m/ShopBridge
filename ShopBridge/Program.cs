@@ -12,7 +12,24 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-builder.Services.AddSwaggerGen(); //Swagger 
+//Swagger
+builder.Services.AddSwaggerGen(opts =>
+{
+    var title = "Shop Bridge";
+    var description = "Simple API to showcase .NET 6";
+
+    opts.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = title,
+        Description = description
+    });
+
+    opts.SwaggerDoc("v2", new Microsoft.OpenApi.Models.OpenApiInfo
+    {
+        Title = title,
+        Description = description
+    });
+});
 
 //Auth
 builder.Services.AddAuthorization(opts =>
@@ -53,13 +70,30 @@ builder.Services.AddDbContext<ShopDbContext>(options =>
     .EnableSensitiveDataLogging()
     .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
+//API versioning
+builder.Services.AddApiVersioning(opts =>
+{
+    opts.AssumeDefaultVersionWhenUnspecified = true;
+    opts.DefaultApiVersion = new(1, 0);
+    opts.ReportApiVersions = true;
+});
+
+builder.Services.AddVersionedApiExplorer(opts =>
+{
+    opts.GroupNameFormat = "'v'VVV";
+    opts.SubstituteApiVersionInUrl = true;
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(opts =>
+    {
+        opts.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
+        opts.SwaggerEndpoint("/swagger/v2/swagger.json", "v2");
+    });
 }
 
 app.UseHttpsRedirection();

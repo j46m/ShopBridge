@@ -3,10 +3,11 @@ using ShopBridge.Domain.Models;
 using ShopBridge.Services;
 using System.Security.Claims;
 
-namespace ShopBridge.Controllers
+namespace ShopBridge.Controllers.v1
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
+    [ApiVersion("1.0")]
     public class ProductsController : ControllerBase
     {
         private readonly IProductService _productService;
