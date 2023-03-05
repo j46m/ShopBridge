@@ -5,7 +5,7 @@ using System.Security.Claims;
 
 namespace ShopBridge.Controllers.v1
 {
-    [Route("api/v1/[controller]")]
+    [Route("api/v{version:apiVersion}/[controller]")]
     [ApiController]
     [ApiVersion("1.0")]
     public class ProductsController : ControllerBase

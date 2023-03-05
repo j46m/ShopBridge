@@ -103,7 +103,7 @@ namespace ShopBridge.Controllers
                                              audience,
                                              claims,
                                              DateTime.UtcNow,
-                                             DateTime.UtcNow.AddMinutes(10),
+                                             DateTime.UtcNow.AddMinutes(10), //Should be config
                                              signinCredentials);
 
             return new JwtSecurityTokenHandler().WriteToken(token);
