@@ -4,7 +4,7 @@ namespace ShopBridge.Domain.Models
 {
     public class Product
     {
-        [Required]
+        [Key]
         public int Id { get; set; }
 
         [Required]

@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
+using ShopBridge.DataAccess.Data;
+using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,9 +38,15 @@ builder.Services.AddAuthentication("bearer").AddJwtBearer(opts =>
     };
 });
 
+var sqlConnectionString = builder.Configuration.GetConnectionString("Default") ?? "null";
+
 //Healthchecks
 builder.Services.AddHealthChecks()
-    .AddSqlServer(builder.Configuration.GetConnectionString("Default")); 
+    .AddSqlServer(sqlConnectionString);
+
+//DB settings
+builder.Services.AddDbContext<ShopDbContext>(options =>
+    options.UseSqlServer(sqlConnectionString));
 
 var app = builder.Build();
 

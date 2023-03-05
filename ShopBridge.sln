@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ShopBridge", "ShopBridge\Sh
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.Domain", "ShopBridge.Domain\ShopBridge.Domain.csproj", "{457CC44C-B471-4541-9D10-B7A8FD534D5B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopBridge.DataAccess", "ShopBridge.DataAccess\ShopBridge.DataAccess.csproj", "{2C9BB70D-3B5A-4B31-9073-C10A04C83A2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{457CC44C-B471-4541-9D10-B7A8FD534D5B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{457CC44C-B471-4541-9D10-B7A8FD534D5B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{457CC44C-B471-4541-9D10-B7A8FD534D5B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C9BB70D-3B5A-4B31-9073-C10A04C83A2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C9BB70D-3B5A-4B31-9073-C10A04C83A2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C9BB70D-3B5A-4B31-9073-C10A04C83A2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C9BB70D-3B5A-4B31-9073-C10A04C83A2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
