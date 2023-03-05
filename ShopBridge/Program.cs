@@ -24,7 +24,7 @@ builder.Services.AddAuthorization(opts =>
 });
 
 
-builder.Services.AddAuthentication("bearer").AddJwtBearer(opts =>
+builder.Services.AddAuthentication("Bearer").AddJwtBearer(opts =>
 {
     var key = Encoding.ASCII.GetBytes(builder.Configuration.GetValue<string>("Authentication:SecretKey"));
 

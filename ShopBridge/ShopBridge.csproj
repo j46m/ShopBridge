@@ -19,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ShopBridge.DataAccess\ShopBridge.DataAccess.csproj" />
+    <ProjectReference Include="..\ShopBridge.Services\ShopBridge.Services.csproj" />
   </ItemGroup>
 
 </Project>

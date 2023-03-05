@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ShopBridge.DataAccess\ShopBridge.DataAccess.csproj" />
+    <ProjectReference Include="..\ShopBridge.Domain\ShopBridge.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
