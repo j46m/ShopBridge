@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ShopBridge.DataAccess.Data;
+using ShopBridge.Services;
 using System;
 using System.Text;
 
@@ -43,6 +44,9 @@ var sqlConnectionString = builder.Configuration.GetConnectionString("Default") ?
 //Healthchecks
 builder.Services.AddHealthChecks()
     .AddSqlServer(sqlConnectionString);
+
+//Product Service
+builder.Services.AddTransient<IProductService, ProductService>();
 
 //DB settings
 builder.Services.AddDbContext<ShopDbContext>(options =>
