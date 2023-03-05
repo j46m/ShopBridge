@@ -57,18 +57,15 @@ namespace ShopBridge.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{product.Name} could not be added.");
             }
 
-            return CreatedAtAction("GetBook", new { id = product.Id }, product);
+            return CreatedAtAction("Get", new { id = product.Id }, product);
         }
 
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] Product product)
         {
-            if (id != product.Id)
-            {
-                return BadRequest();
-            }
 
+            product.Id = id;
             Product? dbProduct = await _productService.UpdateProductAsync(product);
 
             if (dbProduct is null)
@@ -76,7 +73,7 @@ namespace ShopBridge.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, $"{product.Name} could not be updated");
             }
 
-            return NoContent();
+            return StatusCode(StatusCodes.Status200OK, product);
         }
 
 

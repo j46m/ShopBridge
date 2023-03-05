@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using ShopBridge.DataAccess.Data;
 using ShopBridge.Services;
-using System;
 using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -48,9 +47,11 @@ builder.Services.AddHealthChecks()
 //Product Service
 builder.Services.AddTransient<IProductService, ProductService>();
 
-//DB settings
+//DB settings, no tracking queries
 builder.Services.AddDbContext<ShopDbContext>(options =>
-    options.UseSqlServer(sqlConnectionString));
+    options.UseSqlServer(sqlConnectionString)
+    .EnableSensitiveDataLogging()
+    .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking));
 
 var app = builder.Build();
 
